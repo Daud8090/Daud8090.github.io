@@ -197,7 +197,7 @@
      <script>
         function getAllCustomers() {
             $.ajax({
-            url: "http://localhost:3005/Allcustomers/",
+            url: "https://stormy-gorge-55533.herokuapp.com/Allcustomers/",
             type: "GET",
             //crossDomain: true,
             success: function (response) {
@@ -298,7 +298,7 @@
             // console.log(amnt);
             debugger
             $.ajax({
-            url: "http://localhost:3005/transferMoney?email1=" + e1 + "&email2=" + e2 +"&amount="+ amnt,
+            url: "https://stormy-gorge-55533.herokuapp.com/transferMoney?email1=" + e1 + "&email2=" + e2 +"&amount="+ amnt,
             type: "GET",
             crossDomain: true,
             success: function (response) {
