@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="widht-device-width,initial-scale=1,shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie-edge">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    
+    <title>TSF CUSTOMERS</title>
+</head>
+
+<body onload="getAllCustomers()">
+
+
+    <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand mr-auto" href="./index.html"> TSF BANK </a>
+            <div class="collapse navbar-collapse" id="Navbar">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item "><a class="nav-link" href="./index.html"><span class="fa fa-home fa-lg"></span> Home</a></li>
+                <li class="nav-item active"><a class="nav-link" href="#"><span class="fa fa-users fa-lg"></span> OUR CUSTOMERS</a></li>
+              
+            </ul>
+            </div>
+        </div>
+        </nav>
+
+
+
+        <header class="jumbotron">
+            <div class="container">
+                <div class="row row-header">
+                    <div class="col-12 col-sm-6">
+                        <h1>THE SPARK FOUNDATION BANK</h1>
+                        <p>A tradition of Excellence and Prosperity</p>
+                    </div>
+                    <div class="col-12 col-sm align-self-center">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+
+    <div class="container">
+        <div class="row ">
+            <ol class="col-12 breadcrumb">
+                <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
+                <li class="breadcrumb-item active">OUR CUSTOMERS</li>
+                
+            </ol>
+            <div class="col-12 ">
+               <h3>All Customers</h3>
+               <hr>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Send Money</button>
+
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+        
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+               
+              </div>
+              <div class="modal-body">
+                <form>
+                 <label >Sender's Email address</label>
+                 <input type="email" class="form-control" placeholder="enter email of sender" id="email1">
+                 <label >Receiver's Email address</label>
+                 <input type="email" class="form-control" placeholder="enter email of receiver" id="email2">
+                 <label >Amount</label>
+                 <input type="number" class="form-control" placeholder="Amount to be send" id="amt">
+                 
+                </form>
+                <button  onclick="transferMoney()" class="btn btn-default" >submit</button>
+
+                </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                
+              </div>
+            </div>
+        
+          </div>
+        </div>
+
+
+
+
+
+
+
+       <div class="row row-content">
+           <div class="col-12 col-sm-11">
+                             
+               <div class="table-responsive">
+                <table class="table table-hover table-striped">
+                   
+                        <!--<thead class="thead-dark">
+                            <tr>
+                                <th>S.NO</th>
+                                <th>Name</th>
+                                <th>Email-id</th>
+                                <th>Bank Balance</th>
+                                <th>Transfer Money</th>
+                            </tr>
+                        </thead>-->
+                        <!-- <tbody>
+                            <tr>
+                                <td></td>
+                                <th>Aahan Mirza</th>
+                                <td>aahan@email.com</td>
+                                <td>30000</td>
+                                <td><button class="btn btn-success" onclick="send()">send</button></td>
+                            </tr>
+                        </tbody> -->
+
+
+                        <div id="response" class="table-responsive">
+           
+                        </div>
+                </table>
+               </div>
+           </div>               
+           <div class="col-12 col-sm-1"></div>
+       </div>
+
+       
+    </div>
+    <footer class="footer">
+        <div class="container">
+           <div class="row">             
+                <div class="col-4 offset-1 col-sm-2">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Menu</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-7 col-sm-5">
+                    <h5>Our Address</h5>
+                    <address>
+		              121, xyz Road<br>
+		              acbd, earth<br>
+		              universe<br>
+		              <span class="fa fa-phone fa-lg"></span> : +110001110<br>
+                      <span class="fa fa-fax fa-lg"></span> : 110001110<br>
+		              <span class="fa fa-envelope fa-lg"></span> : <a href="mailto:myeamil@email.com">myEmail@email.com</a>
+		           </address>
+                </div>
+                <div class="col-12 col-sm-4 align-self-center">
+                    <div class="text-center">
+                        <a class="btn btn-social-icon btn-google" href="http://google.com/+"><span class="fa fa-google-plus fa-lg"></span> </a>
+                        <a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/"><i class="fa fa-linkedin fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i class="fa fa-twitter fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-youtube" href="http://youtube.com/"><i class="fa fa-youtubr fa-lg"></i></a>
+                    </div>
+                </div>
+           </div>
+           <div class="row justify-content-center">             
+                <div class="col-auto">
+                    <p>© Copyright 2020 My demoWebsite</p>
+                </div>
+           </div>
+           
+        </div>
+    </footer>
+    
+   
+     <script>
+        function getAllCustomers() {
+            $.ajax({
+            url: "http://localhost:3005/Allcustomers/",
+            type: "GET",
+            //crossDomain: true,
+            success: function (response) {
+                // console.log(response)
+                ander(response)
+                // tableKander(response)
+              
+            },
+            error: function (xhr, status) {
+                console.log(xhr)
+                console.log(status)
+            }
+        });
+        }
+
+
+        function ander(response){
+            var x = document.createElement("TABLE");
+                x.setAttribute("id", "myTable");
+                x.classList.add("table");
+                x.classList.add("table-hover")
+                x.classList.add("table-striped")
+                
+                document.getElementById("response").appendChild(x)
+
+                    var tbody = document.createElement("TBODY");
+                    x.appendChild(tbody);
+                    var trow = document.createElement("TR");
+                    trow.setAttribute("id", "Trow");
+                    
+                    trow.classList.add("thead-dark")
+                    // var sno=document.createTextNode(" Sno");
+                    // thed.appendChild(sno);
+                    // trow.appendChild(thed);
+
+                    var ar=[" SNo", " Name", "Email", " Balance"];
+                    for(var i=0;i<ar.length;i++)
+                    {
+                        // var tdh=document.createElement("TD");
+                        var thed=document.createElement("TH");
+                        
+                    var temp=document.createTextNode(ar[i]);
+                    // tdh.appendChild(temp);
+                    thed.appendChild(temp);
+                    trow.appendChild(thed);
+                    } 
+
+                tbody.appendChild(trow);
+
+               
+                    
+                for(var i = 0 ; i < response.length ; i++) {
+                                        
+                    var y = document.createElement("TR");
+                    y.setAttribute("id", "myTr"+i);
+                    document.getElementById("myTable").appendChild(y);
+
+                    var sn = document.createElement("TD");
+                    var sno = document.createTextNode(" "+response[i].sno);
+                    
+
+                    sn.appendChild(sno);
+
+                    var z = document.createElement("TD");
+                    var t = document.createTextNode(" "+response[i].name);
+                    z.appendChild(t);
+                    
+                    var zz = document.createElement("TD");
+                    var tt = document.createTextNode(" "+response[i].email);
+                    zz.appendChild(tt);
+
+                   var zzz = document.createElement("TD");
+                    var ttt = document.createTextNode(" "+response[i].balance);
+                    zzz.appendChild(ttt);
+                    y.appendChild(sn);
+                    y.appendChild(z);
+                    y.appendChild(zz);
+                    y.appendChild(zzz);
+                    
+
+                    tbody.appendChild(y);
+                }
+
+
+        }
+
+
+
+        function transferMoney(){
+            // return
+            var e1=document.getElementById("email1").value;
+            var e2=document.getElementById("email2").value;
+            var amnt=document.getElementById("amt").value;
+
+
+            // console.log(e1);
+            // console.log(e2);
+            // console.log(amnt);
+            debugger
+            $.ajax({
+            url: "http://localhost:3005/transferMoney?email1=" + e1 + "&email2=" + e2 +"&amount="+ amnt,
+            type: "GET",
+            crossDomain: true,
+            success: function (response) {
+                console.log(" hhora hai ")
+                // debugger
+                alert(response)
+                window.location='/'
+              
+            },
+            error: function (xhr, status) {
+                // console.log(xhr)
+                // console.log(status)
+                console.log("ajax error")
+                // debugger
+                alert("xhr");
+            }
+        });
+        debugger
+        }
+        </script>
+</body>
+
+</html>
